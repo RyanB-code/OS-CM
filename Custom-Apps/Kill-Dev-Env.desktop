@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=Kill Dev Env
+Comment=Kill the 'Development' TMUX session
+Exec=/home/bradley/Scripts/kill-dev-env.sh
+Icon=/usr/share/icons/Pop/128x128/apps/utilities-x-terminal.svg

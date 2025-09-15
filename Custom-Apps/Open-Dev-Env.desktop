@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=Open Dev Env
+Comment=Open NVIM, Time Tracker, and a terminal open to NAS project directories
+Exec=/home/bradley/Scripts/open-dev-env.sh
+Icon=/usr/share/icons/Pop/128x128/apps/utilities-x-terminal.svg
