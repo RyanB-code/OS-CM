@@ -49,8 +49,8 @@ vim.keymap.set('n', '%', '%zz', { desc = "Bounce centered"})
 
 
 -- Moving Window
-vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { desc = "Decrease window width"})
-vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = "Increase window width"})
+vim.keymap.set('n', '<C-Down>', ':vertical resize -2<CR>', { desc = "Decrease window width"})
+vim.keymap.set('n', '<C-Up>', ':vertical resize +2<CR>', { desc = "Increase window width"})
 
  -- Tab interaction
 vim.keymap.set("n", "<M-t>", "<Cmd>$tabnew<CR>") 	-- set Alt+T to open a new tab at the end of the tab row
