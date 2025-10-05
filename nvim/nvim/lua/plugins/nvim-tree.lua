@@ -34,10 +34,13 @@ return {
         view = { width = 30 },
         renderer = { group_empty = true },
         filters = { dotfiles = true },
-	on_attach = my_on_attach,
+	    on_attach = my_on_attach,
     })
-        
+    require('nvim-web-devicons').setup {
+        -- Options can be configured here if needed
+    }
+
     -- Set shortcut for nvim-tree
-    vim.keymap.set('n', '<M-q>', ':NvimTreeToggle<CR>')
+    vim.keymap.set('n', '<M-q>', ':NvimTreeToggle<CR>')        
   end,
 }
