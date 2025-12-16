@@ -28,15 +28,18 @@ return {
     },
     config = function()
 	    	require('telescope').setup {
-		    extensions = { fzf = {} }
+		        extensions = { fzf = {} },
 	    	}
 	    	require('telescope').load_extension('fzf')
 	
 	    	vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags)
 	    	vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files)
 	    	vim.keymap.set('n', '<leader>en', function()
-		    	require('telescope.builtin').find_files {cwd = vim.fn.stdpath('config')} 
-	    		end)		
+		    	require('telescope.builtin').find_files ({
+                    cwd = vim.fn.stdpath('config'),
+                    file_ignore_patterns = { "LSP/", },
+                })
+	    	    end )	
 	    	vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep)	
     end
   }
