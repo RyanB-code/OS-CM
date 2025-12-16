@@ -15,11 +15,6 @@ end
 
 
 
-
-
-
-
-
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
@@ -35,6 +30,9 @@ return {
         renderer = { group_empty = true },
         filters = { dotfiles = true },
 	    on_attach = my_on_attach,
+        diagnostics = { enable = true },
+        auto_reload_on_write = true,
+        update_focused_file = { enable = true },
     })
     require('nvim-web-devicons').setup {
         -- Options can be configured here if needed
