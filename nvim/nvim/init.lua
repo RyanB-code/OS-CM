@@ -101,17 +101,18 @@ vim.api.nvim_create_autocmd("WinLeave", {
 
 
 -- LSP Items
-
-vim.lsp.config('lua_ls', {
-    cmd = { 'lua-language-server' },
-    filetypes = { 'lua' },
- })
-vim.lsp.enable('lua_ls') 
-
 vim.lsp.config('clangd', {
-    cmd = { 'clangd' },
+    cmd = { 
+        'clangd',
+        '--query-driver=/usr/bin/g++',
+    },
     filetypes = { 'cpp', 'c' },
     root_markers = {'.git'},        -- Use .git as the topmost file to search for
+    settings = {
+        clangd = {
+            fallbackFlags = { '-std=c++23' }
+        }
+    },
  })
 
 vim.lsp.enable('clangd')
@@ -134,8 +135,19 @@ vim.diagnostic.config({
 
 -- Open diagnostic window for that line
 vim.keymap.set("n", "<Leader>d", function()
-    vim.diagnostic.open_float(0, { 
-        scope = 'line',
-        border = 'rounded',
-    })
-end, { desc = "Open diagnostics float for current line" })
+        vim.diagnostic.open_float(0, { 
+            scope = 'line',
+            border = 'rounded',
+        })
+    end, 
+    { desc = "Open diagnostics float for current line" })
+
+
+vim.keymap.set("n", "<Leader>gd", function()
+        vim.cmd('tab split')
+        vim.lsp.buf.definition()
+    end, 
+    { desc = "Open diagnostics float for current line" })
+
+
+vim.keymap.set('n', '<leader>fu', vim.lsp.buf.references, { noremap = true, silent = true, desc = "Find Usages (LSP References)" })
