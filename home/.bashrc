@@ -115,13 +115,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
-
-
 
 
 # Added by Me
 alias "cd-nas-projects"="cd /mnt/NAS/1-Project-Related/Project-Source-Directories/"
+
+# So LAS files can be found
+export LD_LIBRARY_PATH=/usr/local/lib/LAS
 
 # For Neovim
 export PATH="$PATH":/opt/nvim-linux-x86_64/bin
