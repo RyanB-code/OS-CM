@@ -129,15 +129,18 @@ export PATH="$PATH":/opt/nvim-linux-x86_64/bin
 # Custom Bash Prompt
 function custom_prompt() {
     local BRANCH=""
-    local USER="[\[\e[32;1m\]\u\[\e[0m\]]"
+    local USER="\[\e[32;1m\]\u\[\e[0m\]"
+    local HOST="\[\e[32;1m\]@\H\[\e[0m\]"
+    local TIME="\[\e[3m\]\t\[\e[0m\]"
+    local DIR="\[\e[01;34m\]\w\[\e[0m\]"
 
     if git rev-parse --is-inside-work-tree &>/dev/null; then
         BRANCH="[\[\e[38;5;246;1;3m\]$(git branch --show-current 2>/dev/null)\[\e[0m\]]"
     fi
     if [ "${EUID}" -eq 0 ]; then 
-        USER="[\[\e[31;1m\]ROOT\[\e[0m\]]"
+        USER="\[\e[31;1m\]ROOT\[\e[0m\]"
     fi;
 
-    PS1="\[\e[38;5;249m\]╭─\[\e[0m\][\[\e[3m\]\t\[\e[0m\]] ${USER} [\[\e[36;1m\]\H\[\e[0m\]] [\[\e[01;34m\]\w\[\e[0m\]] ${BRANCH} \n\[\e[38;5;249m\]╰──\[\e[0m\]\$ "
+    PS1="\[\e[38;5;249m\]╭─\[\e[0m\][${TIME}] [${USER}${HOST}] [${DIR}] ${BRANCH} \n\[\e[38;5;249m\]╰──\[\e[0m\]\$ "
 }
 PROMPT_COMMAND="custom_prompt"
